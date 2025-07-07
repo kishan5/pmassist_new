@@ -15,35 +15,32 @@ export default function Home() {
   }, []);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!email) return;
+  e.preventDefault();
+  if (!email) return;
 
-    try {
-      const response = await fetch("https://script.google.com/macros/s/1pnde7XsAHeUN92oBOOIAQ-vo2oJnRtbRY8qtWQz3Se27ky0DUuIyvUMN/exec", {
-        method: "POST",
-        mode: "cors", 
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
+  const formData = new FormData();
+  formData.append("entry.1368211345", email); // replace with your actual field ID
+
+  try {
+    await fetch("https://docs.google.com/forms/d/e/1FAIpQLScvs-T8hg1XbUhZu7PDYTT8_2F1bUT8_Vh_U1wuFLVPHGj93g/formResponse", {
+      method: "POST",
+      mode: "no-cors",
+      body: formData,
+    });
+
+    setSubmitted(true);
+
+    if (window.gtag) {
+      window.gtag("event", "conversion", {
+        event_category: "waitlist",
+        event_label: "email_capture",
+        value: 1,
       });
-
-      if (response.ok) {
-        setSubmitted(true);
-        if (window.gtag) {
-          window.gtag("event", "conversion", {
-            event_category: "waitlist",
-            event_label: "email_capture",
-            value: 1,
-          });
-        }
-      } else {
-        console.error("Failed to submit");
-      }
-    } catch (err) {
-      console.error("Error submitting email:", err);
     }
-  };
+  } catch (err) {
+    console.error("Error submitting email:", err);
+  }
+};
 
   return (
     <main className="min-h-screen bg-white text-black px-6 py-12 font-sans">

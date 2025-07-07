@@ -49,7 +49,7 @@ export default function Home() {
       <div className="max-w-4xl mx-auto">
         <header className="mb-16 text-center">
           <h1 className="text-5xl font-semibold leading-tight mb-4 tracking-tight">
-            🧠 PMAssist — Your AI Copilot for Product Managers
+            PMAssist — Your AI Copilot for Product Managers
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Automate the boring stuff. Get AI to plan your sprints, track tasks, and manage updates while you focus on product strategy.

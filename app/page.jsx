@@ -19,7 +19,7 @@ export default function Home() {
     if (!email) return;
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/1WKRiJr-AB3zir8LHyp85BDWtpPkHSC9isd_HEJZnLA669G-UUf0QtuTu/exec", {
+      const response = await fetch("https://script.google.com/macros/s/1pnde7XsAHeUN92oBOOIAQ-vo2oJnRtbRY8qtWQz3Se27ky0DUuIyvUMN/exec", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

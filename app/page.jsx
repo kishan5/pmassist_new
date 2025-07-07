@@ -21,6 +21,7 @@ export default function Home() {
     try {
       const response = await fetch("https://script.google.com/macros/s/1pnde7XsAHeUN92oBOOIAQ-vo2oJnRtbRY8qtWQz3Se27ky0DUuIyvUMN/exec", {
         method: "POST",
+        mode: "cors", 
         headers: {
           "Content-Type": "application/json",
         },
